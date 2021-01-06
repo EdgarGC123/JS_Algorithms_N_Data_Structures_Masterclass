@@ -41,6 +41,7 @@ function mySum(n, m) {
 }
 
 
+//====================================================================================================
 
 //Concrete Examples
 
@@ -62,6 +63,7 @@ explore invalid inputs
 charCount("aaaa"); //{a:4}
 charCount("hello"); //{h:1, e:1, l:2, o:1 }
 
+//====================================================================================================
 
 //Problem Solving
 /*
@@ -91,6 +93,65 @@ function charCount(str){
 }
 
 
+//====================================================================================================
 
-//Solve And Simplify
-//
+//Solve & Simplify
+/* you can now solve the problem.
+if you can't. solve a simpler problem
+
+Simplify!
+find the core difficulty in what you're trying to do
+temporarily ingore that difficulty
+write a simplified solution
+then incorporate that difficulty
+*/
+function charCount(str){
+    //make object to return at end
+    var result = {};
+    //loop over string, for each character...
+    for(var i=0; i<str.length; i++){
+        var char = str[i].toLowerCase();
+        if(result[char]>0){
+            result[char]++
+        }else{
+            result[char] = 1;
+        }
+        //if the char is a number/letter AND is a key in obj, add one to couhnt
+        //if the char is anumber/letter AND not in object, add it and set value to 1
+        //if char is something else (space, period, etc.) don't do anything
+    }
+    //return object at end
+    return result;
+}
+
+//====================================================================================================
+
+//Look Back & Refactor
+//congrats on solving it, but you're not done!
+//try and improve your code. otherwise it's a missed opportunity
+
+/*
+Refactoring Questions
+-can you check the results?
+-can you derive the result differently?
+-can you understand it at a glance?
+-can you use the result or method for some other problem?
+-can you improve the performance of your solution?
+-can you think of other ways to refactor?
+-how have other people solve this problem?
+*/
+
+function charCount(str){
+    var result = {};
+    for(var i=0; i<str.length; i++){
+        var char = str[i].toLowerCase();
+        if(/[a-z0-9]/.text(char)){
+            if(result[char]>0){
+                result[char]++;
+            }else{
+                result[char] = 1;
+            }
+        }
+    }
+    return result;
+}
