@@ -29,6 +29,8 @@ console.log(addUpTo(100))
 //which one is better? what does better mean?
 // - Faster? - Less Memory Intensive? - More readable?
 
+
+
 //Big O Definition:
 //formalize fuzzy counting
 //it allows us to talk formallya bout how the runtime 
@@ -83,12 +85,15 @@ hasOwnProperty O(1)
 
 
 
+
+
 // When to use Array's 
 /*
 when you need order, and need fast access and insertion. 
 
 removal gets complicated
 
+BIG O OF ARRAYS
 insertion - it depends
 removal - it depends
 searching - O(N)
@@ -98,7 +103,7 @@ access - O(1)
 let names = ["Michael", "Melissa", "Andrea"]
 
 // "Michael"  "Melissa"  "Andrea"
-//    0          0           0
+//    0          1           2
 
 /* 
 accessing a value, with a valid index, is constant time. it goes straight to that point in the array. 
@@ -111,7 +116,6 @@ this requires the array to be re-indexes.
 
 push and pop is always faster than shift and unshift
 
-
 */
 
 
@@ -119,6 +123,15 @@ push and pop is always faster than shift and unshift
 
 
 
-
-
-
+//Big O of array methods
+/*
+push - O(1)
+pop - O(1)
+shift - O(N)
+shift - O(N)
+concat - O(N) (technical: O(N + M) where M represents the size of the second array)
+slice - O(N)
+splice - O(N)
+sort - O(N * logN)
+foreach/map/filter/reduce/etc. - O(N)
+*/
