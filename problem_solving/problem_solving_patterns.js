@@ -26,6 +26,8 @@ Master common problem solving patterns
 
 //write a function called same, which attempts two arrays. the function should return true if every value in the array has it's corresponding value squared in the second array. The frequency of values must be the same.
 
+//EXAMPLE: Naive Solution
+
 same([1,2,3], [4,1,9]) //true
 same([1,2,3], [1,9]) //false
 same([1,2,1], [4,4,1]) //false (must be same frequency)
@@ -44,6 +46,7 @@ function same(arr1, arr2){
     return true;
 }
 
+//Example: Refactored Solution
 function same2(arr1, arr2){
     if(arr1.length !== arr2.length){//if the length's are different, they aren't the same^2
         return false;
@@ -67,7 +70,6 @@ function same2(arr1, arr2){
     }
     return true;
 }
-
 //====================================================================================================
 
 //Frequency Counter: Anagram Challenge
@@ -170,4 +172,33 @@ function countUniqueValues2(arr){
         }
     }
     return i+1;
+}
+
+
+//====================================================================================================
+
+//Sliding Window Pattern
+
+//This pattern involves creating a window which can either be an array or number from one position to another. 
+//depending on certain conditions, the window either increases or closes (and a new window is created)
+// very useful for keeping track of subset of data in an array/string
+
+//write a function called maxSubarraySum which accepts an array of integers and a number called n. The function should calculate the maximum sum of n consecutive elements in the array.
+
+//EXAMPLE: Naive Solution
+function maxSubarraySum(arr, num){
+    if(num > arr.length){
+        return null;
+    }
+    var max = -Infinity;
+    for(let i=0; i< arr.length-num + 1; i++){
+        temp = 0;
+        for(let j=0; j< num; j++){
+            temp += arr[i+j];
+        }
+        if(temp > max){
+            max = temp;
+        }
+    }
+    return max;
 }
