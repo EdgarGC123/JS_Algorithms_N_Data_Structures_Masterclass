@@ -1,4 +1,4 @@
-/******************** Problem Solving Patterns cont. ********************/
+/******************** Problem Solving Patterns Cont: Frequency Counter - Valid Anagram ********************/
 
 function validAnagram(arr1, arr2){
     // add whatever parameters you deem necessary - good luck!

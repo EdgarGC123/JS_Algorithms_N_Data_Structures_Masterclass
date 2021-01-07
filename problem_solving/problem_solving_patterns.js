@@ -83,11 +83,95 @@ validAnagram('qwerty', 'qeywrt') //true
 validAnagram('textwtisttime','timetwisttext')//true
 
 //====================================================================================================
+
 //Frequency Counter - Valid Anagram Challenge js file.
+
 //====================================================================================================
 
 //Multiple Pointers
 //Creating pointers or values that correspond to an index or position and move towards the beginning, end or middle based on a certain condition.
-
 //Very efficient for solving problems with minimal space complexity as well. 
 
+//Write a function called sumZero which accepts a SORTED array of integers. The function should find the first pair where the sum is 0. Return an array that inscludes both values that sum to zero or undefined if a pair does not exist. 
+
+//EXAMPLE: Naive Solution
+
+function sumZero(arr){
+    for(let i=0; i<arr.length; j++){ //basic loop thru entire array
+        for(let j=i+1; j<arr.length; j++){//basic loop thru entire array starting one ahead
+            if(arr[i]+ arr[j]===0){// if the sum is 0
+                return [arr[i], arr[j]]
+            }
+        }
+    }
+}
+
+//EXAMPLE: Refactored Solution
+
+function sumZero2(arr){
+    let left = 0;
+    let right = arr.length-1;
+    while(left<right){
+        let sum = arr[left] + arr[right];
+        if(sum===0){
+            return[arr[left], arr[right]]
+        }else if(sum > 0){
+            right--;
+        }else{
+            left++;
+        }
+    }
+}
+
+//Note: the examples we're working with are all sorted arrays which is what allows the refactored solution to be highly efficient. otherwise things get more complicated.
+
+//====================================================================================================
+
+//Count Unique Values Challenge
+
+//We aren't starting from the beginning & end towards the middle anymore. 
+//We now have 2 pointers going in the same direction.
+
+//write a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted.
+
+//EXAMPLE: Naive Solution
+
+function countUniqueValues(arr){
+    if(arr.length < 2){
+        return 1
+    }
+    let count=1;
+    for(let i=0, j=1; j<arr.length; i++, j++){
+        if(arr[i]===arr[j]){
+            continue;
+        }
+        else{
+            count++;
+        }
+    }
+    return count;
+}
+
+//====================================================================================================
+
+//Multiple Pointers - countUniqueValues js file.
+
+//====================================================================================================
+//EXAMPLE: Refactored Solution
+
+function countUniqueValues2(arr){
+    if(arr.length < 2){
+        return arr.length;
+    }
+    for(let i=0, j=1; j<arr.length; j++){
+        if(arr[i]===arr[j]){
+            continue;
+        }else{
+            arr[++i] = arr[j]
+        }
+        if(j===arr.length-1){
+            return arr[i];
+        }
+    }
+    return arr[i];
+}
