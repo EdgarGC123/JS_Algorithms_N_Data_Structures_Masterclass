@@ -3,9 +3,7 @@ function countUniqueValues2(arr){
         return arr.length;
     }
     for(let i=0, j=1; j<arr.length; j++){
-        if(arr[i]===arr[j]){
-            continue;
-        }else{
+        if(arr[i]!==arr[j]){
             arr[++i] = arr[j];
         }
         if(j===arr.length-1){

@@ -138,14 +138,11 @@ function sumZero2(arr){
 
 function countUniqueValues(arr){
     if(arr.length < 2){
-        return 1
+        return arr.length
     }
     let count=1;
     for(let i=0, j=1; j<arr.length; i++, j++){
-        if(arr[i]===arr[j]){
-            continue;
-        }
-        else{
+        if(arr[i]!==arr[j]){
             count++;
         }
     }
@@ -157,21 +154,20 @@ function countUniqueValues(arr){
 //Multiple Pointers - countUniqueValues js file.
 
 //====================================================================================================
+
+//Unique Values Solution
+
 //EXAMPLE: Refactored Solution
 
 function countUniqueValues2(arr){
     if(arr.length < 2){
         return arr.length;
     }
-    for(let i=0, j=1; j<arr.length; j++){
-        if(arr[i]===arr[j]){
-            continue;
-        }else{
+    let i=0
+    for(let j=1; j<arr.length; j++){
+        if(arr[i]!==arr[j]){
             arr[++i] = arr[j]
         }
-        if(j===arr.length-1){
-            return arr[i];
-        }
     }
-    return arr[i];
+    return i+1;
 }
