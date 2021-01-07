@@ -54,7 +54,7 @@ function same2(arr1, arr2){
     let frequencyCounter1 = {};//empty obj for arr1
     let frequencyCounter2 = {};//empty obj for arr2
 
-    for(let val of arr1){//looping thru arr1
+    for(let val of arr1){//looping thru arr1 
         frequencyCounter1[val] = (frequencyCounter1[val] || 0) +1//if arr1 val doesn't exist in obj as an el, create that el with a value of 1. otherwise increment that el
     }
     for(let val of arr2){//looping thru arr2
@@ -70,6 +70,7 @@ function same2(arr1, arr2){
     }
     return true;
 }
+
 //====================================================================================================
 
 //Frequency Counter: Anagram Challenge
