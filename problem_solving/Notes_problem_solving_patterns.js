@@ -71,6 +71,7 @@ function same2(arr1, arr2){
     return true;
 }
 
+
 //====================================================================================================
 
 //Frequency Counter: Anagram Challenge
