@@ -204,3 +204,20 @@ function maxSubarraySum(arr, num){
     }
     return max;
 }
+
+//EXAMPLE: Refactored Solution
+
+function maxSubarraySum2(arr, num){
+    if(arr.length < num) return null;
+    let max = 0;
+    let total = 0;
+    for(let i=0; i<num; i++){
+        max += arr[0];
+    }
+    total = max;
+    for(let i=num; i< arr.length; i++){
+        total = total - arr[i-num] + arr[i];
+        max = Math.max(max, total);
+    }
+    return max;
+}
