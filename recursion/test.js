@@ -124,7 +124,7 @@ let obj = {
     }
 }
 // console.log(obj);
-console.log( stringifyNumbers(obj) )
+// console.log( stringifyNumbers(obj) )
 console.log( stringifyNumbers2(obj) )
 
 //====================================================================================================
@@ -162,5 +162,3 @@ console.log( stringifyNumbers2(obj) )
 
 // final = collectStrings(obj) // ["foo", "bar", "baz"])
 // console.log("FINAL: ", final)
-
-
