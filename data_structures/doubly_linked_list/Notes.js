@@ -93,12 +93,7 @@ class DoublyLinkedList {
             //     i--;
             // }
         }else{
-            current = this.tail;
-            let diff = this.length - i;// i=2 length=4 = 2
-            while(c < diff){
-                current = current.prev;
-                c++;
-            }
+ 
             // while(i<this.length-1){
             //     current = current.prev;
             //     i++;
@@ -118,6 +113,40 @@ class DoublyLinkedList {
             return true;
         }
         return false;
+    }
+    insert(i,val){
+        if(i < 0 || i>=this.length) return false;
+        if(i === 0) return !!this.unshift(val);
+        if(i == this.length) return !!this.push(val);
+        
+        let newNode = new Node(val);
+        let preNode = this.get(i-1);
+        let aftNode = preNode.next;
+
+        newNode.next = aftNode;//3
+        aftNode.prev = newNode;//4
+        preNode.next = newNode;//1
+        newNode.prev = preNode;//2
+
+        this.length++;
+        return true;
+    }
+    remove(i){
+        if(i < 0 || i>=this.length) return false;
+        if(i === 0) return !!this.shift();
+        if(i == this.length-1) return !!this.pop();
+
+        let removed = this.get(i);
+        let preNode = removed.prev;
+        let aftNode = removed.next;
+
+        preNode.next = aftNode;
+        aftNode.prev = preNode;
+        removed.next = null;
+        removed.prev = null;
+
+        this.length--
+        return removed;
     }
     traverse(){
         let current = this.head;
@@ -151,7 +180,11 @@ list.push("!");
 // list.shift();
 // list.print();
 // list.unshift("New");
-list.print();
+// list.print();
 // console.log (list.get(1));
-list.set(0, "Hi")
+// list.set(0, "Hi")
+// list.print();
+// list.insert(2,"Man");
+list.print();
+list.remove(3);//removing last item;
 list.print();
