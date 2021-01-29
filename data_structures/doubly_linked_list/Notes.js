@@ -94,10 +94,10 @@ class DoublyLinkedList {
             // }
         }else{
  
-            // while(i<this.length-1){
-            //     current = current.prev;
-            //     i++;
-            // }
+            while(i<this.length-1){
+                current = current.prev;
+                i++;
+            }
             // let count = this.length-1;
             // while(i<count){
             //     current = current.prev;
@@ -142,6 +142,7 @@ class DoublyLinkedList {
 
         preNode.next = aftNode;
         aftNode.prev = preNode;
+        // aftNode.prev = removed.prev
         removed.next = null;
         removed.prev = null;
 
